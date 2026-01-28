@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Veridian Core | Precision Greenhouse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg-color: #ffffff;
+      }
+      body {
+        font-family: 'Manrope', sans-serif;
+        background-color: var(--bg-color);
+        transition: background-color 0.4s ease;
+        min-height: 100vh;
+        color: #0f172a;
+        margin: 0;
+        overflow-x: hidden;
+      }
+      /* Subtle animated background elements */
+      .bg-blob {
+        position: fixed;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+        border-radius: 50%;
+        z-index: -1;
+        filter: blur(80px);
+        animation: move 25s infinite alternate;
+      }
+      .bg-blob-2 {
+        position: fixed;
+        bottom: -100px;
+        right: -100px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+        border-radius: 50%;
+        z-index: -1;
+        filter: blur(60px);
+        animation: move 30s infinite alternate-reverse;
+      }
+      @keyframes move {
+        from { transform: translate(-10%, -10%) scale(1); }
+        to { transform: translate(20%, 20%) scale(1.1); }
+      }
+
+      .card-minimal {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+        border-radius: 2rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .card-minimal:hover {
+        border-color: #cbd5e1;
+        transform: translateY(-2px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05);
+      }
+
+      input[type=range] {
+        -webkit-appearance: none;
+        width: 100%;
+        background: transparent;
+      }
+      input[type=range]::-webkit-slider-runnable-track {
+        height: 6px;
+        background: #f1f5f9;
+        border-radius: 3px;
+      }
+      input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: 2px solid currentColor;
+        cursor: pointer;
+        margin-top: -7px;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        transition: transform 0.1s ease;
+      }
+      input[type=range]:active::-webkit-slider-thumb {
+        transform: scale(1.2);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "recharts": "https://esm.sh/recharts@^3.7.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div class="bg-blob"></div>
+    <div class="bg-blob-2"></div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
